@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <script src="scrip.js"></script>
+    <link rel="shortcut icon" href="favicon.png">
+    <title>Tickets</title>
+</head>
+<body>
+
+<form class="form1" action="../controller/agregar_tickets.php" >
+    <div>
+        <br>
+        <h2>NUEVO TICKET.</h2>
+        <p><img src="./ball.png" width="20" height="20" alt="">
+          Que equipo cree usted que ganara el mundial,
+          <span style="color: red;"> Quatar 2022 </span></p> 
+          <br>
+          <div class="div2">
+            <p>Equipo Campeon</p>
+              <select>
+                <option value="0">Selecciona:</option>
+                <?php
+                  $sql3 = "SELECT * from equipos ";
+                  $result3=mysqli_query($conn, $sql3);
+                  while($mostrar3=mysqli_fetch_array($result3)){
+                    echo '<option value="'.$mostrar3['id'].'">'.$mostrar3['nombre'].'</option>';
+                  }
+                  ?>
+              </select>         
+            <p>Marcador 1</p>
+            <input type="number">
+            <br>
+            <p>Marcador 2</p>
+            <input type="number">
+            <br>
+          </div>
+        <p><img src="./ball.png" width="20" height="20" alt="">
+          Cual cree que son los dos equipos qeu lelgan a la final,
+          <span style="color: red;"> el dia (18/12/2022). </span>
+        </p>
+        <br> <br>
+        <p>EQUIPO 1</p>
+        <select>
+            <option value="0" >Seleccionar Equipo:</option>
+            <?php
+              $sql3 = "SELECT * from equipos ";
+              $result3=mysqli_query($conn, $sql3);
+              while($mostrar3=mysqli_fetch_array($result3)){
+                echo '<option value="'.$mostrar3['id'].'">'.$mostrar3['nombre'].'</option>';
+              }
+            ?>
+        </select>
+        <button href="#" class="ov-btn-slide-left">Agregar Nuevo</button> 
+        
+      </div>
+  </form>
